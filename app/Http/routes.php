@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
-
+Route::get('/test/{id}', 'TestController@index');
 
 //Route::group(['prefix' => 'admin' ],function($router) {
 //        Route::get('test/index', 'TestController@index')->name('abc');

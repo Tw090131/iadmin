@@ -19,11 +19,12 @@ class TestController extends Controller
 //        $this->userRepo = $userRepo;
 //    }
 
-    public function index(){
+    public function index(Request $request,$id){
         //服务模式
        // dd($this->user->findBy(1)->toArray());
-
-
+        dd($request->path());
+        echo $request->id;
+        echo $id;
         //门面模式
         //dd(UserRepository::findBy(1)->toArray());
 

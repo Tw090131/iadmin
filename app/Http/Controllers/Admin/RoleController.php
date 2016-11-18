@@ -73,7 +73,7 @@ class RoleController extends Controller
         $role = $this->role->edit($id);
        // dd($role);
         $permissions = $this->permission->findPermissionWithArray();
-       //dd($permissions);
+        //dd($permissions);
 
 //        $results = DB::select('select permission_id from iadmin_permission_role where role_id = :id', ['id' => $id]);
 //       //dd($results);

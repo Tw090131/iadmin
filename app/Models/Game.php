@@ -4,21 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Game extends Model
 {
     use ActionAttributeTrait;
-    //table 默认是users  对于usermodel
     private $action;
+    protected $table = 'game';
     protected $fillable = [
-        'name',
-        'username',
-        'email',
-        'password'
+        'game_name',
+        'cp_uid',
+        'sort',
     ];
 
     public function __construct()
     {
-        $this->action = config('admin.globals.users.action');
+        $this->action = config('admin.globals.game.action');
         //dd(config('admin.globals.permission.action'));
     }
 }

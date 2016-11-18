@@ -23,6 +23,17 @@ return [
 		'show'		=> 'admin.users.show',
 		'reset'		=> 'admin.users.reset',
 	],
+	'game' => [
+		'create' 	=> 'admin.game.create',
+		'edit' 		=> 'admin.game.edit',
+		'delete' 	=> 'admin.game.delete',
+		'trash' 	=> 'admin.game.trash',
+		'undo' 		=> 'admin.game.undo',
+		'list' 		=> 'admin.game.list',
+		'audit'		=> 'admin.game.audit',
+		'show'		=> 'admin.game.show',
+		'reset'		=> 'admin.game.reset',
+	],
 	'roles' => [
 		'add' 	=> 'admin.roles.add',
 		'edit' 		=> 'admin.roles.edit',
