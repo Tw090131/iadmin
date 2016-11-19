@@ -12,6 +12,8 @@ class Game extends Model
     protected $fillable = [
         'game_name',
         'cp_uid',
+        'appid',
+        'appsecret',
         'sort',
     ];
 

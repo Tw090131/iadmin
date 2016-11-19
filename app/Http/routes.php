@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
 Route::get('/test/{id}', 'TestController@index');
 
 //Route::group(['prefix' => 'admin' ],function($router) {
@@ -37,5 +36,8 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware'=>['auth'] 
     require(__DIR__ . '/Routes/UserRoute.php');
     /*游戏分析*/
     require(__DIR__ . '/Routes/GameRoute.php');
+    /*后台首页游戏列表*/
+    require(__DIR__ . '/Routes/IndexRoute.php');
 
+    Route::get('/tools/icon', 'ToolsController@icon');
 });

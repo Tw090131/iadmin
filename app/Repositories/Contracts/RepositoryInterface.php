@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories\Contracts;
 /**
-* 仓库接口
+* 仓库接口   接口中放所有的公共法方
 */
 interface RepositoryInterface
 {

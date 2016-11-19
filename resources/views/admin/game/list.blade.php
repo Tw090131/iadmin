@@ -57,7 +57,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
-          <h2>权限列表</h2>
+          <h2>游戏列表</h2>
           <ul class="nav navbar-right panel_toolbox">
             @permission(config('admin.permissions.permissions.add'))
             <li><a href="{{url('admin/game/create')}}" class="btn btn-default"><i class="fa fa-plus"></i>添加</a>
@@ -71,7 +71,7 @@
           <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>权限列表</h2>
+                  <h2>游戏列表</h2>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -82,6 +82,8 @@
                         <th>游戏名称</th>
                         <th>游戏地址</th>
                         <th>排序</th>
+                         <th>APPID</th>
+                         <th>APPSECRET</th>
                         <th>创建时间</th>
                         <th>修改时间</th>
                         <th>操作</th>

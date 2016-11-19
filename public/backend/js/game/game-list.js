@@ -40,6 +40,16 @@ var PermissionList = function() {
               "name": "sort",
               "orderable" : false,
             },
+            {
+                "data": "appid",
+                "name": "appid",
+                "orderable" : false,
+            },
+            {
+                "data": "appsecret",
+                "name": "appsecret",
+                "orderable" : false,
+            },
             { 
               "data": "created_at",
               "name": "created_at",

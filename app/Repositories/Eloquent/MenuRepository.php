@@ -5,10 +5,11 @@ use App\Models\Menu;
 use Cache;
 class MenuRepository extends Repository
 {
-	
+	//必须重写 所继承的抽象类的 抽象方法
 	public function model()
 	{
-		return Menu::class;
+		//dd(Menu::class);//"App\Models\Menu"
+		return Menu::class;//获取ClassName 的完全限定名称   返回一个对象
 	}
 
 	/**

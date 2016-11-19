@@ -9,11 +9,19 @@ class GameRepository extends Repository
 	{
 		return Game::class;
 	}
+
+	function create_payId($limit){
+		$str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		return substr(str_shuffle($str),0,$limit);
+	}
 	/**
 	 * 添加游戏
 	 */
 	public function createGame($attributes)
 	{
+		$attributes['appid']=$this->create_payId(32);
+		$attributes['appsecret']=$this->create_payId(16);
+		//dd($attributes);
 		$result = $this->create($attributes);
 		if ($result) {
 			flash('添加游戏成功');
@@ -56,7 +64,7 @@ class GameRepository extends Repository
 
 	    $game = $game->orderBy($order['name'], $order['dir']);
     	$games = $game->where('cp_uid',auth()->user()->id)->offset($start)->limit($length)->get();
-
+	//	dd($games);
 		if ($games) {
 			foreach ($games as &$v) {
 				//dd( $v->getActionButtonAttribute());

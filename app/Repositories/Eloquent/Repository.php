@@ -1,28 +1,34 @@
 <?php
+/*接口实现类*/
+
 namespace App\Repositories\Eloquent;
 use App\Repositories\Contracts\RepositoryInterface;
-use App\Repositories\Exceptions\RepositoryException;
+//use App\Repositories\Exceptions\RepositoryException;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Container\Container as Application;
+use Illuminate\Container\Container as App;
 
-abstract class Repository implements RepositoryInterface
+abstract class Repository implements RepositoryInterface   //继承了RepositoryInterface  要实现他的全部方法
 {
-	protected $app;
+	protected $app;//app容器
 
-	protected $model;
+	protected $model;//操作的model
 
-	public function __construct(Application $app)
+	public function __construct(App $app)
 	{
 		$this->app = $app;
-		$this->makeModel();
+		$this->makeModel();//获取到继承仓库的model
 	}
 
-	abstract public function model();
+	abstract public function model();//获取到继承仓库的model类
 
 	public function makeModel()
     {
-        $model = $this->app->make($this->model());
+	//	dd($this->app);
+		//dd($this->model());
+        $model = $this->app->make($this->model()); //获取model 的实例   这种写法就相当于在框架中new了一下model
+		//dd($model);
 
+		//判断是否继承laravel 的Model
         if (!$model instanceof Model) {
             throw new RepositoryException("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
         }

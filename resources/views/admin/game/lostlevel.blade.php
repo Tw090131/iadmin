@@ -224,15 +224,17 @@
           {device:'iPhone 4', geekbench: 380},
           {device:'iPhone 4', geekbench: 380},
           {device:'iPhone 4', geekbench: 380},
+
+          {device:'iPhone 4', geekbench: 380},
+          {device:'iPhone 4', geekbench: 380},
+          {device:'iPhone 4', geekbench: 380},
+
           {device:'iPhone 4', geekbench: 380},
           {device:'iPhone 4', geekbench: 380},
           {device:'iPhone 4', geekbench: 380},
           {device:'iPhone 4', geekbench: 380},
           {device:'iPhone 4', geekbench: 380},
-          {device:'iPhone 4', geekbench: 380},
-          {device:'iPhone 4', geekbench: 380},
-          {device:'iPhone 4', geekbench: 380},
-          {device:'iPhone 4', geekbench: 380},
+
         ],
         xkey: 'device',
         ykeys: ['geekbench'],

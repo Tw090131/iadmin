@@ -98,7 +98,7 @@ class MenuPresenter
 					if ($v['child']) {
 						$html .= '<li class="'.active_class(if_uri_pattern(explode(',',$v['heightlight_url']))).'"><a><i class="'.$v['icon'].'"></i> '.$v['name'].' <span class="fa fa-chevron-down"></span></a>'.$this->getSidebarChildMenu($v['child']).'</li>';
 					}else{
-						$html .= '<li class="'.active_class(if_uri_pattern([$v['heightlight_url']])).'"><a href="'.$v['url'].'"><i class="'.url($v['url']).'"></i> '.$v['name'].'</a></li>';
+						$html .= '<li class="'.active_class(if_uri_pattern([$v['heightlight_url']])).'"><a href="'.$v['url'].'"><i class="'.$v['icon'].'"></i> '.$v['name'].'</a></li>';
 					}
 				}
 			}

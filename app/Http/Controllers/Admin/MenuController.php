@@ -11,6 +11,7 @@ class MenuController extends Controller
 
     public function __construct(MenuRepository $menu)
     {
+       // dd($menu);
        // $this->middleware('check.permission:menu');//后面的为控制器名称就好了
         $this->menu = $menu;
     }
