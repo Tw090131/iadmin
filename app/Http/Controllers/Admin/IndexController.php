@@ -10,6 +10,6 @@ use App\Http\Controllers\Controller;
 class IndexController extends Controller
 {
    public function gamelist(){
-       echo 111;
+       return view('admin/index/gamelist');
    }
 }

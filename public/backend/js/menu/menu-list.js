@@ -16,7 +16,7 @@ var MenuList = function() {
 	    	$('#method').remove();
 	    	$('input[name=id]').remove();
 	    	// 修改表单action
-	    	$('#menuForm').attr('action','/admin/menu');
+	    	$('#menuForm').attr('action','/admin/menus');
 	    	// 清空表单
 	    	$('#menuForm input.form-control').val('');
 	    	var _item = $(this);

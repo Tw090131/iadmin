@@ -50,7 +50,7 @@ class GameController extends Controller
     public function store(GameRequest $request)
     {
         $this->game->createGame($request->all());
-        return redirect('admin/game');
+        return redirect('admin/index/gamelist');
     }
 
 

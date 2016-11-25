@@ -1,3 +1,3 @@
 <?php
 
-$router->resource('menu','MenuController');
+$router->resource('menus','MenuController');

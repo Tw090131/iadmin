@@ -37,6 +37,7 @@ class MenuRepository extends Repository
 	public function sortMenuSetCache()
 	{
 		$menus = $this->model->orderBy('sort','desc')->get()->toArray();
+
 		if ($menus) {
 			$menuList = $this->sortMenu($menus);
 			foreach ($menuList as $key => &$v) {
@@ -46,7 +47,8 @@ class MenuRepository extends Repository
 				}
 			}
 			// 缓存菜单数据
-			Cache::forever(config('admin.globals.cache.menuList'),$menuList);
+			//Cache::forever(config('admin.globals.cache.menuList'),$menuList);
+			//dd($menuList);
 			return $menuList;
 			
 		}
@@ -59,9 +61,9 @@ class MenuRepository extends Repository
 	public function getMenuList()
 	{
 		// 判断数据是否缓存
-		if (Cache::has(config('admin.globals.cache.menuList'))) {
-			return Cache::get(config('admin.globals.cache.menuList'));
-		}
+//		if (Cache::has(config('admin.globals.cache.menuList'))) {
+//			return Cache::get(config('admin.globals.cache.menuList'));
+////		}
 		//dd($this->sortMenuSetCache());
 		return $this->sortMenuSetCache();
 	}
@@ -70,7 +72,7 @@ class MenuRepository extends Repository
 	{
 		$menu = $this->model->find($id)->toArray();
 		if ($menu) {
-			$menu['update'] = url('admin/menu/'.$id);
+			$menu['update'] = url('admin/menus/'.$id);
     		$menu['msg'] = '加载成功';
     		$menu['status'] = true;
 			return $menu;

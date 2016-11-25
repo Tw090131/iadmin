@@ -1,3 +1,8 @@
 <?php
-$router->get('/','HomeController@index')->name('admin.home.index');
-$router->resource('home','HomeController');
+/**
+ *
+ */
+    $router->post('inituser','GameController@inituser');
+$router->get('test','GameController@test');
+
+

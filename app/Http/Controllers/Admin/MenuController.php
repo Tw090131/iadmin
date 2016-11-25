@@ -39,7 +39,7 @@ class MenuController extends Controller
         }else{
             flash('添加菜单失败', 'error');
         }
-        return redirect('admin/menu');
+        return redirect('admin/menus');
     }
 
     /**
@@ -56,13 +56,13 @@ class MenuController extends Controller
     public function update(MenuRequest $request)
     {
         $this->menu->updateMenu($request);
-        return redirect('admin/menu');
+        return redirect('admin/menus');
     }
     /**
      * 删除菜单
      */
     public function destroy($id){
         $this->menu->destroyMenu($id);
-        return redirect('admin/menu');
+        return redirect('admin/menus');
     }
 }

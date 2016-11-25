@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::auth();
@@ -38,6 +38,20 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware'=>['auth'] 
     require(__DIR__ . '/Routes/GameRoute.php');
     /*后台首页游戏列表*/
     require(__DIR__ . '/Routes/IndexRoute.php');
+    /*后台首页游戏列表*/
+    require(__DIR__ . '/Routes/BasedataRoute.php');
+    /*后台付费数据*/
+    require(__DIR__ . '/Routes/PaydataRoute.php');
+    /*后台充值数据*/
+    require(__DIR__ . '/Routes/RechargeRoute.php');
+    /*后台渠道区服数据*/
+    require(__DIR__ . '/Routes/ChannelAreaRoute.php');
+
 
     Route::get('/tools/icon', 'ToolsController@icon');
+});
+
+//Home
+Route::group(['namespace' => 'Home','prefix' => 'home' ],function($router){
+    require(__DIR__ . '/Routes/HomeRoute.php');
 });

@@ -1,4 +1,5 @@
 <?php
+//这些配置 在 后台检查权限有用
 return [
 	'menus' => [
 		'add' => 'admin.menus.add',
@@ -67,4 +68,49 @@ return [
 		'show'		=> 'admin.home.show',
 		'reset'		=> 'admin.home.reset',
 	],
+	'basedata' => [
+		'setappid'=>true,
+		'all' 	=> 'admin.basedata.all',
+		'active' 	=> 'admin.basedata.active',
+		'roles' 	=> 'admin.basedata.roles',
+		'online' 	=> 'admin.basedata.online',
+		'retention' 	=> 'admin.basedata.retention',
+		'lossrate' 	=> 'admin.basedata.lossrate',
+	],
+	'retention' => [
+		'setappid'=>true,
+		'retention' 	=> 'admin.retention.retention',
+		'lossrate' 	=> 'admin.retention.lossrate',
+	],
+
+	'paydata' => [
+		'setappid'=>true,
+		'bill' 	=> 'admin.paydata.bill',
+		'payrate' 	=> 'admin.paydata.payrate',
+		'ltv' 	=> 'admin.paydata.ltv',
+	],
+
+	'recharge' => [
+		'setappid'=>true,
+		'record' 	=> 'admin.paydata.record',
+		'rank' 	=> 'admin.paydata.rank',
+		'vip' 	=> 'admin.paydata.vip',
+		'first' 	=> 'admin.paydata.first',
+	],
+
+	'recharge' => [
+		'setappid'=>true,
+		'record' 	=> 'admin.paydata.record',
+		'rank' 	=> 'admin.paydata.rank',
+		'vip' 	=> 'admin.paydata.vip',
+		'first' 	=> 'admin.paydata.first',
+	],
+
+	'channel_area' => [
+		'setappid'=>true,
+		'channeldata' 	=> 'admin.channel_area.channeldata',
+		'areadata' 	=> 'admin.channel_area.areadata',
+
+	],
+
 ];

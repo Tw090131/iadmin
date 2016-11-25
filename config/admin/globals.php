@@ -1,7 +1,7 @@
 <?php
 return [
 	// 自定义登录字段
-	'redirectAfterLogout'=>'admin',
+	'redirectAfterLogout'=>'login',
 	'username' => 'username',
 	'cache' => [
 		'menuList' => 'menuList',
@@ -33,7 +33,7 @@ return [
 	],
 	'game' => [
 		// 控制是否显示查看按钮
-		'show' => false,
+		'show' => true,
 		// trait 中的 action 参数
 		'action' => 'game',
 	],

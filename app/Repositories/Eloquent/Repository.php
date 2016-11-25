@@ -159,5 +159,7 @@ abstract class Repository implements RepositoryInterface   //继承了Repository
 	public function with($relations){
 
 	}
+
+
     
 }

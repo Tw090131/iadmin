@@ -56,5 +56,8 @@ class Kernel extends HttpKernel
 
         //自定义中间件  判断权限
         'check.permission' => \App\Http\Middleware\CheckPermission::class,
+
+        //自定义中间件  有无appid参数
+        'check.appid' => \App\Http\Middleware\CheckAppid::class,
     ];
 }

@@ -44,7 +44,15 @@
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
-            这是后台首页
+            这是后台首页<br/><br/>
+
+          1 添加权限<br/>
+          2 添加菜单<br/>
+          3 配置角色权限<br/>
+          4 menupresenter 中有自动配置函数  要在permissions.php 中配置 需要补充appid 的控制器
+          5 添加控制器和方法以及模版<br/>
+          6 添加路由<br/>
+          7 在控制器中加入验证appid  和 权限的 中间件<br/>
         </div>
       </div>
     </div>

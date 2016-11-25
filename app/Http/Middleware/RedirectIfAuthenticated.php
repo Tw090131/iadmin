@@ -17,7 +17,9 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
+
         if (Auth::guard($guard)->check()) {//判断用户是否登录
+           // dd(Auth::guard($guard)->check());
             return redirect('/');
         }
 
