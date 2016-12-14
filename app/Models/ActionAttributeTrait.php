@@ -19,9 +19,9 @@ trait ActionAttributeTrait{
 
 				if($this->action =='game'){
 					if ($type) {
-						return '<a href="'.url('http://iadmin.me/admin/basedata/all'.'?appid='.$this->appid).'" class="btn btn-xs btn-info tooltips" data-container="body" data-original-title="' . trans('labels.'.$this->action.'.show') . '"  data-placement="top"><i class="fa fa-search"></i></a>';
+						return '<a href="'.url('admin/basedata/all'.'?appid='.$this->appid).'" class="btn btn-xs btn-info tooltips" data-container="body" data-original-title="' . trans('labels.'.$this->action.'.show') . '"  data-placement="top"><i class="fa fa-search"></i></a>';
 					}
-					return '<a href="'.url('http://iadmin.me/admin/basedata/all'.'?appid='.$this->appid).'" class="btn btn-xs btn-info tooltips" data-toggle="modal" data-target="#draggable" data-container="body" data-original-title="' . trans('labels.'.$this->action.'.show') . '"  data-placement="top"><i class="fa fa-search"></i></a>';
+					return '<a href="'.url('admin/basedata/all'.'?appid='.$this->appid).'" class="btn btn-xs btn-info tooltips" data-toggle="modal" data-target="#draggable" data-container="body" data-original-title="' . trans('labels.'.$this->action.'.show') . '"  data-placement="top"><i class="fa fa-search"></i></a>';
 				}
 				if ($type) {
 					return '<a href="'.url('admin/'.$this->action.'/'.$this->id).'" class="btn btn-xs btn-info tooltips" data-container="body" data-original-title="' . trans('labels.'.$this->action.'.show') . '"  data-placement="top"><i class="fa fa-search"></i></a>';

@@ -105,7 +105,7 @@ class PermissionsTableSeeder extends Seeder
             'description' => '修改角色',
         ]);
 
-        
+
 
         /**
          * 用户

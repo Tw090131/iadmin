@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'daily'),
 
     /*
     |--------------------------------------------------------------------------
@@ -169,6 +169,10 @@ return [
 
         //高亮
         HieuLe\Active\ActiveServiceProvider::class,
+
+        //debug
+        Orchestra\Debug\DebugServiceProvider::class,
+       Orchestra\Debug\CommandServiceProvider::class,
     ],
 
     /*
@@ -225,7 +229,7 @@ return [
 
         //高亮
         'Active' => HieuLe\Active\Facades\Active::class,
-
+       'Profiler' => Orchestra\Support\Facades\Profiler::class,
     ],
 
 ];

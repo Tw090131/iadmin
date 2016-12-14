@@ -74,18 +74,22 @@
                   <h2>帐号活跃</h2>
                   <div class="clearfix"></div>
                 </div>
+                  @include('layouts.channelarea')
                 <div class="x_content">
                   <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                     <thead>
                        <tr>
                         <th>日期</th>
+                         <th>类型</th>
                         <th>新增导入量</th>
                         <th>新增账号数</th>
+                        <th>注册比例</th>
                         <th>新增创角数</th>
-                        <th>活跃账号数</th>
-                        <th>活跃付费人数/付费率/金额</th>
-                        <th>新增付费人数/付费率/金额</th>
-                         <th>收入</th>
+                        <th>创角比例</th>
+                        <th>老帐号数</th>
+                         <th>老账号活跃趋势</th>
+                       <th>活跃账号数</th>
+                       <th>活跃角色数</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -105,5 +109,26 @@
 @section('js')
 <script src="{{asset('backend/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('backend/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-
+<script src="{{asset('backend/js/basedata/active-list.js')}}"></script>
+<script src="{{asset('backend/js/common.js')}}"></script>
+<script>
+    $(function () {
+        var appid = getUrlParam('appid');
+        var table = ActiveList.init(appid);
+        $("#channel_kuang").on('change','#channel',function(){
+            var cid = $('#channel option:selected').val();
+            var area = $('#area option:selected').val();
+            table.destroy();
+            $('tbody').empty(); // empty in case the columns change
+            table = ActiveList.init(appid,cid,area);
+        })
+        $("#area_kuang").on('change','#area',function(){
+            var cid = $('#channel option:selected').val();
+            var area = $('#area option:selected').val();
+            table.destroy();
+            $('tbody').empty(); // empty in case the columns change
+            table = ActiveList.init(appid,cid,area);
+        })
+    });
+</script>
 @endsection

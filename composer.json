@@ -11,7 +11,8 @@
         "zizaco/entrust": "^1.7",
         "predis/predis": "^1.1",
         "laracasts/flash": "^2.0",
-        "hieu-le/active": "^3.3"
+        "hieu-le/active": "^3.3",
+        "orchestra/debug": "~3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

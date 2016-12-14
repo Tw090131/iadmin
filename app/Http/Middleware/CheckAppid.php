@@ -15,6 +15,7 @@ class CheckAppid
      */
     public function handle($request, Closure $next)
     {
+
         if(request()->appid == ''){
             return   redirect('admin/index/gamelist');
         }

@@ -87,7 +87,6 @@ class MenuRepository extends Repository
     {
         $menu = $this->model->find($request->id);
 		if ($menu) {
-			
 			$isUpdate = $menu->update($request->all());//update 自带填充 只要模型定义fillable就可以了
 			if ($isUpdate) {
 				$this->sortMenuSetCache();

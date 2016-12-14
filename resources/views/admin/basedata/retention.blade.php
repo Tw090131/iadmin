@@ -66,6 +66,7 @@
           </ul>
           <div class="clearfix"></div>
         </div>
+
         <div class="x_content">
           @include('flash::message')
           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -74,18 +75,25 @@
                   <h2>留存率</h2>
                   <div class="clearfix"></div>
                 </div>
+                  @include('layouts.channelarea')
                 <div class="x_content">
                   <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                     <thead>
                        <tr>
                         <th>日期</th>
+                           <th>类型</th>
                         <th>新增导入量</th>
                         <th>新增账号数</th>
-                        <th>新增创角数</th>
-                        <th>活跃账号数</th>
-                        <th>活跃付费人数/付费率/金额</th>
-                        <th>新增付费人数/付费率/金额</th>
-                         <th>收入</th>
+                        <th>次日留存</th>
+                        <th>3日留存</th>
+                        <th>7日留存</th>
+                        <th>15日留存</th>
+                         <th>30日留存</th>
+                         <th>60日留存</th>
+                         <th>90日留存</th>
+                       <th>创建时间</th>
+                       <th>修改时间</th>
+
                       </tr>
                     </thead>
                     <tbody>
@@ -105,5 +113,27 @@
 @section('js')
 <script src="{{asset('backend/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('backend/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script src="{{asset('backend/js/retention/retention-list.js')}}"></script>
+<script src="{{asset('backend/js/common.js')}}"></script>
+<script>
+    $(function () {
+        var appid = getUrlParam('appid');
 
+        var table = RetentionList.init(appid);
+        $("#channel_kuang").on('change','#channel',function(){
+            var cid = $('#channel option:selected').val();
+            var area = $('#area option:selected').val();
+            table.destroy();
+            $('tbody').empty(); // empty in case the columns change
+            table = RetentionList.init(appid,cid,area);
+        })
+        $("#area_kuang").on('change','#area',function(){
+            var cid = $('#channel option:selected').val();
+            var area = $('#area option:selected').val();
+            table.destroy();
+            $('tbody').empty(); // empty in case the columns change
+            table = RetentionList.init(appid,cid,area);
+        })
+    });
+</script>
 @endsection

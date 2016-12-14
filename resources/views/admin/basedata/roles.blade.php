@@ -78,14 +78,24 @@
                   <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                     <thead>
                        <tr>
-                        <th>日期</th>
-                        <th>新增导入量</th>
-                        <th>新增账号数</th>
-                        <th>新增创角数</th>
-                        <th>活跃账号数</th>
-                        <th>活跃付费人数/付费率/金额</th>
-                        <th>新增付费人数/付费率/金额</th>
-                         <th>收入</th>
+                        <th>区服</th>
+                        <th>总导入量（还未考虑好）</th>
+                        <th>总账号数</th>
+                        <th>创帐号比例</th>
+                        <th>总创角数</th>
+                        <th>创角比例</th>
+                        <th>1英雄数</th>
+                        <th>1英雄比例</th>
+                       <th>2英雄数</th>
+                       <th>2英雄比例</th>
+                       <th>3英雄数</th>
+                       <th>3英雄比例</th>
+                       <th>4英雄数</th>
+                       <th>4英雄比例</th>
+                       <th>5英雄数</th>
+                       <th>5英雄比例</th>
+                       <th>6英雄数</th>
+                       <th>6英雄比例</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -105,5 +115,17 @@
 @section('js')
 <script src="{{asset('backend/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('backend/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script src="{{asset('backend/js/basedata/roles-list.js')}}"></script>
+<script>
+    $(function () {
+        var appid = getUrlParam('appid');
+        RolesList.init(appid);
+    });
 
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
+</script>
 @endsection

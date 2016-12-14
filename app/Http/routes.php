@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/','Admin\IndexController@gamelist')->middleware('auth');
 
 Route::auth();
 
@@ -25,7 +23,7 @@ Route::get('/test/{id}', 'TestController@index');
 
 Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware'=>['auth'] ],function($router){
     // 首页路由
-    require(__DIR__.'/Routes/HomeRoute.php');
+    require(__DIR__.'/Routes/AdminIndexRoute.php');
     // 菜单路由
     require(__DIR__.'/Routes/MenuRoute.php');
     // 权限路由
@@ -40,6 +38,8 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware'=>['auth'] 
     require(__DIR__ . '/Routes/IndexRoute.php');
     /*后台首页游戏列表*/
     require(__DIR__ . '/Routes/BasedataRoute.php');
+    /*留存统计*/
+    require(__DIR__ . '/Routes/RetentionRoute.php');
     /*后台付费数据*/
     require(__DIR__ . '/Routes/PaydataRoute.php');
     /*后台充值数据*/

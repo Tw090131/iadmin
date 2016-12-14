@@ -40,7 +40,7 @@ class permissionRepository extends Repository
 	    $search['value'] = request('search.value','');
 
 	    $search['regex'] = request('search.regex',false);
-
+	//	dd($search);
 	    $permission = $this->model;
 
 	    // 搜索框中的值
@@ -56,11 +56,12 @@ class permissionRepository extends Repository
 
 	    $permission = $permission->orderBy($order['name'], $order['dir']);
     	$permissions = $permission->offset($start)->limit($length)->get();
-
+		//dd($permissions);
 		if ($permissions) {
 			foreach ($permissions as &$v) {
+
 				//dd( $v->getActionButtonAttribute());
-				$v['actionButton'] = $v->getActionButtonAttribute();
+				$v['actionButton'] = $v->getActionButtonAttribute(); //每个$v 都是 permissiion的对象  trait在模型中引入的 所以可以用
 			}
 		}
 		//dd($permissions);

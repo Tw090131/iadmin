@@ -74,8 +74,6 @@ return [
 		'active' 	=> 'admin.basedata.active',
 		'roles' 	=> 'admin.basedata.roles',
 		'online' 	=> 'admin.basedata.online',
-		'retention' 	=> 'admin.basedata.retention',
-		'lossrate' 	=> 'admin.basedata.lossrate',
 	],
 	'retention' => [
 		'setappid'=>true,
@@ -88,14 +86,6 @@ return [
 		'bill' 	=> 'admin.paydata.bill',
 		'payrate' 	=> 'admin.paydata.payrate',
 		'ltv' 	=> 'admin.paydata.ltv',
-	],
-
-	'recharge' => [
-		'setappid'=>true,
-		'record' 	=> 'admin.paydata.record',
-		'rank' 	=> 'admin.paydata.rank',
-		'vip' 	=> 'admin.paydata.vip',
-		'first' 	=> 'admin.paydata.first',
 	],
 
 	'recharge' => [

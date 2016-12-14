@@ -77,7 +77,7 @@ abstract class Repository implements RepositoryInterface   //继承了Repository
 	* @return mixed
 	*/
 	public function findWhere(array $where, $columns = ['*']){
-
+		return $this->model->select($columns)->where($where)->get();
 	}
 	/**
 	* Find data by multiple values in one field
@@ -99,6 +99,7 @@ abstract class Repository implements RepositoryInterface   //继承了Repository
 	* @return mixed
 	*/
 	public function create(array $attributes){
+		//dd($attributes);
 		$model = new $this->model;
 		return $model->fill($attributes)->save();
 		//fill 过滤(只留下数组中的字段)  【 是根据 models 中 $fillable 中的字段】  不生明的话 全部都会被过滤
@@ -113,7 +114,9 @@ abstract class Repository implements RepositoryInterface   //继承了Repository
 	* @return mixed
 	*/
 	public function update(array $attributes, $id){
-
+		$model = $this->model->findOrFail($id);
+		$model->fill($attributes);
+		return $model->save();
 	}
 	/**
 	* Update or Create an entity in repository
@@ -136,7 +139,7 @@ abstract class Repository implements RepositoryInterface   //继承了Repository
 	* @return int
 	*/
 	public function delete($id){
-
+		return $this->model->destroy($id);
 	}
 	/**
 	* Order collection by a given column
@@ -158,6 +161,33 @@ abstract class Repository implements RepositoryInterface   //继承了Repository
 	*/
 	public function with($relations){
 
+	}
+
+	public function setInc($id,$field,$num=1){
+		$result = $this->model->where('id',$id)->first();
+		$result->save([$field,111]);
+		//dd($result);
+	}
+
+
+	/*
+	 * $field
+	 * $checkattr
+	 * */
+	public function checkAttr($field,$checkattr){
+
+		$field = explode(',',$field);
+		//dd($field);
+		$arr=[];
+
+		foreach($field as $v){
+
+			if(empty($checkattr[$v]) && $checkattr[$v]!=0){
+				$arr[] = trans('homenotice.'.$v);
+			}
+		}
+
+		return $arr;
 	}
 
 

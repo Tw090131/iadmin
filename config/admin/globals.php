@@ -5,6 +5,8 @@ return [
 	'username' => 'username',
 	'cache' => [
 		'menuList' => 'menuList',
+		'account'=>'account',
+		'account_role'=>'account_role',
 	],
 	'list' => [
 		'start' => 0,

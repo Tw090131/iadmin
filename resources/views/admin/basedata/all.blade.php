@@ -74,18 +74,26 @@
                   <h2>数据总览</h2>
                   <div class="clearfix"></div>
                 </div>
+                  @include('layouts.channelarea')
                 <div class="x_content">
                   <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                     <thead>
                        <tr>
                         <th>日期</th>
+                         <th>类型</th>
                         <th>新增导入量</th>
                         <th>新增账号数</th>
-                        <th>新增创角数</th>
+                        <th>新增创角数(新帐号)</th>
                         <th>活跃账号数</th>
-                        <th>活跃付费人数/付费率/金额</th>
-                        <th>新增付费人数/付费率/金额</th>
+                        <th>活跃付费人数</th>
+                       <th>活跃付费率</th>
+                       <th>活跃付费金额</th>
+                        <th>新增付费人数</th>
+                       <th>新增付费率</th>
+                       <th>新增付费金额</th>
                          <th>收入</th>
+                       <th>创建时间</th>
+                       <th>更新时间</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -105,5 +113,27 @@
 @section('js')
 <script src="{{asset('backend/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('backend/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script src="{{asset('backend/js/basedata/all-list.js')}}"></script>
+<script src="{{asset('backend/js/common.js')}}"></script>
+    <script>
+        $(function () {
+            var appid = getUrlParam('appid');
 
+            var table = AllList.init(appid);
+            $("#channel_kuang").on('change','#channel',function(){
+                var cid = $('#channel option:selected').val();
+                var area = $('#area option:selected').val();
+                table.destroy();
+                $('tbody').empty(); // empty in case the columns change
+                table = AllList.init(appid,cid,area);
+            })
+            $("#area_kuang").on('change','#area',function(){
+                var cid = $('#channel option:selected').val();
+                var area = $('#area option:selected').val();
+                table.destroy();
+                $('tbody').empty(); // empty in case the columns change
+                table = AllList.init(appid,cid,area);
+            })
+        });
+    </script>
 @endsection

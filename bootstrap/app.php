@@ -41,6 +41,12 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+//完全控制Monolog的配置
+//$app->configureMonologUsing(function($monolog) {
+//    $monolog->pushHandler(...);
+//});
+
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application
