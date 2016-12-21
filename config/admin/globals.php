@@ -3,10 +3,12 @@ return [
 	// 自定义登录字段
 	'redirectAfterLogout'=>'login',
 	'username' => 'username',
+
 	'cache' => [
 		'menuList' => 'menuList',
 		'account'=>'account',
 		'account_role'=>'account_role',
+		'exp_num'=>'exp_num',
 	],
 	'list' => [
 		'start' => 0,

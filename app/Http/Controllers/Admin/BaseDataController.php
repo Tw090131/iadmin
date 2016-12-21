@@ -29,7 +29,8 @@ class BaseDataController extends Controller
         $appid = request()->appid;
         $channels=$this->getChannels($appid);
         $areas = $this->getAreas($appid);
-        return view('admin.basedata.all',compact(['channels','areas']));
+        $worlds = $this->getWorlds($appid);
+        return view('admin.basedata.all',compact(['channels','areas','worlds']));
     }
 
 
@@ -48,14 +49,19 @@ class BaseDataController extends Controller
         $appid = request()->appid;
         $channels=$this->getChannels($appid);
         $areas = $this->getAreas($appid);
-        return view('admin.basedata.active',compact(['channels','areas']));
+        $worlds = $this->getWorlds($appid);
+        return view('admin.basedata.active',compact(['channels','areas','worlds']));
     }
 
 
 
     //角色概况
     public function roles(){
-        return view('admin.basedata.roles');
+        $appid = request()->appid;
+        $channels=$this->getChannels($appid);
+        $areas = $this->getAreas($appid);
+        $worlds = $this->getWorlds($appid);
+        return view('admin.basedata.roles',compact(['channels','areas','worlds']));
     }
     public function ajaxBasedataRoles()
     {

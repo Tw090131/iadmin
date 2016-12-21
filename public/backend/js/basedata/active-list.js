@@ -1,5 +1,5 @@
-var ActiveList = function(appid,channel,area) {
-      var activeInit = function(appid,channel,area){
+var List = function(appid,channel,area,world) {
+      var Init = function(appid,channel,area,world){
           var dt= $('#datatable-responsive').DataTable({
               "processing": true,
               "serverSide": true,//开启服务模式
@@ -17,6 +17,7 @@ var ActiveList = function(appid,channel,area) {
                   "data": function ( d ) {
                       d.channel = channel; // request('test','');
                       d.area=area;
+                      d.world=world;
                   }
             },
             // 注意: 这里列的数量必须和页面th标签数据量一致，否则会报错
@@ -26,6 +27,10 @@ var ActiveList = function(appid,channel,area) {
                 "data": "date",
                 "name" : "date"
               },
+            {
+                "data": "world",
+                "name" : "world"
+            },
             {
                 "data": "type",
                 "name" : "type"
@@ -91,6 +96,6 @@ var ActiveList = function(appid,channel,area) {
           return dt;
       }
     return {
-        init : activeInit
+        init : Init
     }
 }();

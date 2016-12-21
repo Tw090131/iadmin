@@ -52,6 +52,7 @@ class AccountRoleRepository extends Repository
 			$attributes['aid'] = $account->id;
 			$attributes['area_id'] = $account->create_of_area;
 			$attributes['cid'] = $account->cid;
+			$attributes['world'] = $account->world;
 			$attributes['gid']=$game->id;
 			$attributes['login_time']=time();
 			$attributes['leave_time']=time();

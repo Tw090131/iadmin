@@ -21,7 +21,8 @@ class RetentionController extends Controller
         $appid = request()->appid;
         $channels=$this->getChannels($appid);
         $areas = $this->getAreas($appid);
-        return view('admin.basedata.retention',compact(['channels','areas']));
+        $worlds = $this->getWorlds($appid);
+        return view('admin.basedata.retention',compact(['channels','areas','worlds']));
     }
 
     public function ajaxRetentionIndex()
@@ -35,7 +36,10 @@ class RetentionController extends Controller
 
     //流失率
     public function lossrate(){
-
-        return view('admin.basedata.lossrate');
+        $appid = request()->appid;
+        $channels=$this->getChannels($appid);
+        $areas = $this->getAreas($appid);
+        $worlds = $this->getWorlds($appid);
+        return view('admin.basedata.lossrate',compact(['channels','areas','worlds']));
     }
 }

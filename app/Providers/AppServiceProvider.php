@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        Profiler::attachDebugger();
+        Profiler::attachDebugger();//php artisan debug
         //一般用这种方式
         view()->composer(
             'layouts.sidebar', 'App\Http\ViewComposers\MenuComposer'//第一个参数指定模版  * 是说有页面,第一个参数可以用数组

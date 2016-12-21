@@ -12,6 +12,9 @@ use App\Repositories\Eloquent\AccountRepository;
 use App\Repositories\Eloquent\AccountRoleRepository;
 use App\Repositories\Eloquent\SystemRepository;
 use App\Repositories\Eloquent\DailydataRepository;
+use App\Repositories\Eloquent\ChannelAreaExpRepository;
+use Illuminate\Support\Facades\Cache;
+
 class GameController extends Controller
 {
 
@@ -19,12 +22,14 @@ class GameController extends Controller
     private $account_role;
     private  $system;
     private  $dailydata;
-    public function __construct(AccountRepository $account,AccountRoleRepository $account_role,SystemRepository $system,DailydataRepository $dailydata)
+    private $channel_area_exp;
+    public function __construct(AccountRepository $account,AccountRoleRepository $account_role,SystemRepository $system,DailydataRepository $dailydata,ChannelAreaExpRepository $channel_area_exp)
     {
         $this->account = $account;
         $this->account_role=$account_role;
         $this->system=$system;
         $this->dailydata=$dailydata;
+        $this->channel_area_exp=$channel_area_exp;
     }
 
 
@@ -39,29 +44,26 @@ class GameController extends Controller
 
     public function inituser(Request $request){
 
-//        for($i=0;$i<7;$i++){
+//        for($i=1;$i<7;$i++){
 //            dump(time()-3600*24*$i);
 //        }
 //        dd(111);
 
-        $input =$request->all();
-        $appid = isset($input['appid'])?$input['appid']:null;
-        //判断是否进行统计
-        $dailydata = $this->system->dailyStatistic($appid);  //这里 判断是否 需要拆入每天数据   需要的时候才会写缓存 account  和account_role
-
-        if(!isset($dailydata['code']) && $dailydata != false){
-           //如果需要更新的话
-            //dd($dailydata);
-            $this->dailydata->addDailydata($dailydata);
-
+        if(isset( $input['world'])){
+            $world = preg_replace('/^( |\s)*|( |\s)*$/', '', $input['world']);
+            if($world == ''){
+                $input['world']='0';
+            }
         }
+
+
 
         switch(isset($input['type'])?$input['type']:0){
             case 1:
-                $result =  $this->account->initaccount($request->all());
+             //   $result =  $this->account->initaccount($input);
                 break;
             case 2:
-                $result = $this->account_role->initrole($request->all());
+                $result = $this->account_role->initrole($input);
                 break;
             default:
                 return ['code'=>trans('homenotice.type')];
@@ -75,10 +77,38 @@ class GameController extends Controller
     //埋点
     /*
      * @parms appid
-     * @parms type  int
+     * @parms openid
+     * @parms world
+     * @parms cid
+     * @parms area_id
+     * @parms type  int  1导入量  2 帐号埋点 3 角色埋点  4进入游戏
      * */
     public function addMaidian(Request $request){
-       return  $this->system->addMaidian($request->all());
+
+        $input =$request->all();
+
+       $appid = isset($input['appid'])?$input['appid']:null;
+
+        //判断是否进行统计
+
+        $dailydata = $this->system->dailyStatistic($appid);  //这里 判断是否 需要拆入每天数据   需要的时候才会写缓存 account  和account_role
+    //    dd($dailydata);
+
+        if(!isset($dailydata['code']) && $dailydata != false){
+            //如果需要更新的话
+            $this->dailydata->addDailydata($dailydata);
+        }else{
+            return $dailydata;
+        }
+
+        if(isset( $input['world'])){
+            $world = preg_replace('/^( |\s)*|( |\s)*$/', '', $input['world']);
+            if($world == ''){
+                $input['world']='0';
+            }
+        }
+
+       return  $this->channel_area_exp->addMaidian($input);
     }
 
 

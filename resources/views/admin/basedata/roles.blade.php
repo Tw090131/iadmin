@@ -74,6 +74,7 @@
                   <h2>角色概况</h2>
                   <div class="clearfix"></div>
                 </div>
+                  @include('layouts.channelarea')
                 <div class="x_content">
                   <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                     <thead>

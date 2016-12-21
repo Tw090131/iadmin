@@ -3,6 +3,7 @@ namespace App\Repositories\Eloquent;
 use App\Models\Game;
 use App\Repositories\Eloquent\Repository;
 use App\Models\Account;
+use App\Repositories\Eloquent\ChannelAreaExpRepository;
 class AccountRepository extends Repository
 {
 	
@@ -46,6 +47,7 @@ class AccountRepository extends Repository
 			$attributes['login_time']=time();
 			$attributes['leave_time']=time();
 			$attributes['gid']=$game->id;
+			//dd($attributes);
 			if($this->create($attributes)){
 				return ['code'=>'200','msg'=>'create'];
 			}

@@ -3,8 +3,8 @@
  *
  */
     //帐号初始化
-    $router->post('inituser','GameController@inituser');
-    $router->post('addMaidian','GameController@addMaidian');
+    $router->get('inituser','GameController@inituser');
+    $router->get('addMaidian','GameController@addMaidian');
     $router->get('test','GameController@test');
 
 

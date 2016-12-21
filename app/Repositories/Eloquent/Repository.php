@@ -2,6 +2,7 @@
 /*接口实现类*/
 
 namespace App\Repositories\Eloquent;
+use App\Models\Game;
 use App\Repositories\Contracts\RepositoryInterface;
 //use App\Repositories\Exceptions\RepositoryException;
 use Illuminate\Database\Eloquent\Model;
@@ -177,15 +178,20 @@ abstract class Repository implements RepositoryInterface   //继承了Repository
 	public function checkAttr($field,$checkattr){
 
 		$field = explode(',',$field);
-		//dd($field);
+
 		$arr=[];
 
 		foreach($field as $v){
-
-			if(empty($checkattr[$v]) && $checkattr[$v]!=0){
+			//dump(isset($checkattr[$v]));
+			if(!isset($checkattr[$v]) ){
 				$arr[] = trans('homenotice.'.$v);
 			}
 		}
+
+			$game=Game::where(['appid'=>$checkattr['appid']])->first();
+			if(is_null($game)){
+				return [trans('homenotice.appid')];
+			}
 
 		return $arr;
 	}

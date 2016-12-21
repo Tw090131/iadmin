@@ -10,6 +10,7 @@ class Dailydata extends Model
     protected $fillable = [
         'type',
         'gid',
+        'world',
         'cid',
         'area_id',
         'date',
@@ -18,6 +19,7 @@ class Dailydata extends Model
         'create_account_rate',
         'new_role_num',
         'create_role_rate',
+        'scroll_num',
         'active_account_num',
         'active_role_num',
         'active_pay_num',

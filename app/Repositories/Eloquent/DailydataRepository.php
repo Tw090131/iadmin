@@ -14,8 +14,9 @@ class DailydataRepository extends Repository
 
 	public function  addDailydata($attrs){
 		//先查下有无这条记录
+		//dd($attrs);
 			foreach($attrs as $k => $v){
-				$res = Dailydata::where(['gid'=>$v['gid'],'cid'=>$v['cid'],'area_id'=>$v['area_id'],'date'=>$v['date']])->first();
+				$res = Dailydata::where(['gid'=>$v['gid'],'world'=>$v['world'],'cid'=>$v['cid'],'area_id'=>$v['area_id'],'date'=>$v['date']])->first();
 				if(is_null($res)) {
 					$this->create($v);
 				}
@@ -34,6 +35,7 @@ class DailydataRepository extends Repository
 		$length = request('length',config('admin.global.list.length'));
 		$channel = request('channel',0);
 		$area = request('area',0);
+		$world =  request('world',0);
 //		dump($channel);
 //		dd($area);
 		// 排序
@@ -58,11 +60,11 @@ class DailydataRepository extends Repository
 		*/
 		$game=Game::where('appid',$appid)->first();
 
-		$count = $retention->where(['gid'=>$game->id,'cid'=>$channel,'area_id'=>$area])->count();
+		$count = $retention->where(['gid'=>$game->id,'cid'=>$channel,'area_id'=>$area,'world'=>$world])->count();
 
 		$retention = $retention->orderBy($order['name'], $order['dir']);
 
-		$retention = $retention->where(['gid'=>$game->id,'cid'=>$channel,'area_id'=>$area])->offset($start)->limit($length)->get()->toArray();
+		$retention = $retention->where(['gid'=>$game->id,'cid'=>$channel,'area_id'=>$area,'world'=>$world])->offset($start)->limit($length)->get()->toArray();
 		foreach($retention as $k => $v){
 			$retention[$k]['regs_rate']=100*sprintf("%.4f",($v['new_exp'])?$v['new_account_num']/$v['new_exp']:0);
 			$retention[$k]['regs_role_rate']=100*sprintf("%.4f",($v['new_exp'])?$v['new_role_num']/$v['new_exp']:0);

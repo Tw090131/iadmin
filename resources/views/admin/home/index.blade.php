@@ -65,19 +65,24 @@
 
           四、待完成:<br/><br/>
 
+        <h3 style="color:red">  测试  导入量  现在有问题</h3>
+          <h3 style="color:red">该成 cid  和 areaid 要加入  dailydata中</h3>
+          <h3 style="color:red">  加一张表   id gid cid area_id   exp_num(导入量) 12 点统计的时候写入缓存  然后清空  然后封装进 account_role 仓库的方法中</h3><br/><br/>
+
+          <h3 style="color:red">加入world专服概念   一个专服可能有多个渠道   所以统计的时候要加入专服  统计的时候  要加入world 的限制</h3>
+
+         <h3 style="color:red"> 没有帐号才算导入量    以后 开新区 的时候   一个阶段中 总导入量就等于  区新导入量</h3><br/><br/>
+
           用户名管理 修改   基础数据<br/><br/>
 
-          角色 统计    //后期改成 每次查询  写一次缓存 后面的就读缓存<br/><br/>
+          <h3 style="color:red">角色 统计    //后期改成 每次查询  写一次缓存 后面的就读缓存</h3><br/><br/>
 
-          新增导入量测试<br/><br/>
+          流失率板块还没做<br/><br/>
 
-          加一张表   id gid area_id   exp_num(导入量)   然后封装进 account_role 仓库的方法中<br/><br/>
-
-          进入游戏次数统计接口，更新<br/><br/>
 
           全部重新测试一边<br/><br/>
 
-          <div style="color:red">该成 cid  和 areaid 要加入  dailydata中</div>
+
 
           5datatables的使用
           1 定义table  表头  和 tbody

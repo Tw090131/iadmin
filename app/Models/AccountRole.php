@@ -11,6 +11,7 @@ class AccountRole extends Model
         'openid',
         'rid',
         'aid',
+        'gid',
         'role_name',
         'register_time',
         'level',
@@ -19,9 +20,11 @@ class AccountRole extends Model
         'recharge',
         'has_heros_num',
         'area_id',
+        'cid',
+        'world',
         'login_time',
         'leave_time',
-        'cid',
-        'gid',
+
+
     ];
 }

@@ -49,50 +49,53 @@ var List = function(appid,channel,area,world) {
                 "name": "new_account_num",
                 "orderable" : false,
             },
-            { 
-              "data": "lc2",
-              "name": "lc2",
-              "orderable" : false,
-            },
-            {
-                "data": "lc3",
-                "name": "lc3",
-                "orderable" : false,
-            },
-            {
-                "data": "lc7",
-                "name": "lc7",
-                "orderable" : false,
-            },
-            {
-                "data": "lc15",
-                "name": "lc15",
-                "orderable" : false,
-            },
-            {
-                "data": "lc30",
-                "name": "lc30",
-                "orderable" : false,
-            },
-            {
-                "data": "lc60",
-                "name": "lc60",
-                "orderable" : false,
-            },
-            {
-                "data": "lc90",
-                "name": "lc90",
-                "orderable" : false,
-            },
-            { 
-              "data": "created_at",
-              "name": "created_at",
-              "orderable" : true,
-            },{ 
-              "data": "updated_at",
-              "name": "updated_at",
-              "orderable" : true,
-            },
+                {
+                    "data": "regs_rate",
+                    "name": "regs_rate",
+                    "orderable" : false,
+                    render : function(data){
+                        return data+'%';
+                    }
+                },
+                {
+                    "data": "new_role_num",
+                    "name": "new_role_num",
+                    "orderable" : false,
+                },
+                {
+                    "data": "regs_role_rate",
+                    "name": "regs_role_rate",
+                    "orderable" : false,
+                    render : function(data){
+                        return data+'%';
+                    }
+                },
+                {
+                    "data": "new_role_num",
+                    "name": "new_role_num",
+                    "orderable" : false,
+                },
+                {
+                    "data": "regs_role_rate",
+                    "name": "regs_role_rate",
+                    "orderable" : false,
+                    render : function(data){
+                        return data+'%';
+                    }
+                },
+                {
+                    "data": "new_role_num",
+                    "name": "new_role_num",
+                    "orderable" : false,
+                },
+                {
+                    "data": "regs_role_rate",
+                    "name": "regs_role_rate",
+                    "orderable" : false,
+                    render : function(data){
+                        return data+'%';
+                    }
+                },
           ],
           });
           return dt;

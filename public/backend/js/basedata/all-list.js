@@ -1,10 +1,10 @@
-var AllList = function(appid,channel,area) {
-      var allInit = function(appid,channel,area){
+var List = function(appid,channel,area,world) {
+      var Init = function(appid,channel,area,world){
          var dt = $('#datatable-responsive').DataTable({
               "processing": true,
               "serverSide": true,//开启服务模式
               "searchDelay": 800,//搜索延迟
-              "dom":"<'row'<'#id.col-sm-3'l><'col-sm-3' <'#channel_kuang'>><'col-sm-3' <'#area_kuang'>><'col-sm-3'f>>" +
+              "dom":"<'row'<'#id.col-sm-6'l><'col-sm-6'f>>" +
               "<'row'<'col-sm-12'tr>>" +
               "<'row'<'col-sm-5'i><'col-sm-7'p>>",
               "search":{
@@ -17,6 +17,7 @@ var AllList = function(appid,channel,area) {
                  "data": function ( d ) {
                    d.channel = channel; // request('test','');
                      d.area=area;
+                     d.world=world;
                  }
             },
             // 注意: 这里列的数量必须和页面th标签数据量一致，否则会报错
@@ -26,6 +27,10 @@ var AllList = function(appid,channel,area) {
                 "data": "date",
                 "name" : "date"
               },
+                {
+                    "data": "world",
+                    "name" : "world"
+                },
             {
                 "data": "type",
                 "name" : "type"
@@ -102,7 +107,7 @@ var AllList = function(appid,channel,area) {
             return dt;
       }
     return {
-        init : allInit,
+        init : Init,
     }
 }();
 

@@ -74,11 +74,14 @@
                   <h2>流失率</h2>
                   <div class="clearfix"></div>
                 </div>
+                  @include('layouts.channelarea')
                 <div class="x_content">
                   <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                     <thead>
                        <tr>
                         <th>日期</th>
+                           <th>专区</th>
+                           <th>类型</th>
                         <th>新增导入量</th>
                         <th>新增账号数</th>
                         <th>占比</th>
@@ -108,5 +111,6 @@
 @section('js')
 <script src="{{asset('backend/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('backend/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-
+<script src="{{asset('backend/js/retention/lossrate-list.js')}}"></script>
+<script src="{{asset('backend/js/common.js')}}"></script>
 @endsection

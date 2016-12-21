@@ -80,6 +80,7 @@
                     <thead>
                        <tr>
                         <th>日期</th>
+                        <th>专区</th>
                          <th>类型</th>
                         <th>新增导入量</th>
                         <th>新增账号数</th>
@@ -115,25 +116,4 @@
 <script src="{{asset('backend/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <script src="{{asset('backend/js/basedata/all-list.js')}}"></script>
 <script src="{{asset('backend/js/common.js')}}"></script>
-    <script>
-        $(function () {
-            var appid = getUrlParam('appid');
-
-            var table = AllList.init(appid);
-            $("#channel_kuang").on('change','#channel',function(){
-                var cid = $('#channel option:selected').val();
-                var area = $('#area option:selected').val();
-                table.destroy();
-                $('tbody').empty(); // empty in case the columns change
-                table = AllList.init(appid,cid,area);
-            })
-            $("#area_kuang").on('change','#area',function(){
-                var cid = $('#channel option:selected').val();
-                var area = $('#area option:selected').val();
-                table.destroy();
-                $('tbody').empty(); // empty in case the columns change
-                table = AllList.init(appid,cid,area);
-            })
-        });
-    </script>
 @endsection
